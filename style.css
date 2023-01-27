@@ -5,7 +5,7 @@ body{
 
 .cat-img{
     height: 20em;
-    transform: translateX(-7.5em);
+    transform: translateX(3em);
 }
 
 .upgrade-img{
@@ -17,13 +17,5 @@ body{
 }
 
 .card-size{
-    height: 3em;
-}
-
-.arrow-placement{
-    transform: translateY(-.5em);
-}
-
-.stats-placement{
-    transform: translateY(5em);
+    height: 2em;
 }
