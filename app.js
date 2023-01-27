@@ -124,7 +124,7 @@ function drawUpgradeShop() {
                                 <button class="btn btn-warning text-danger" 
                                 onclick="purchaseUpgrade('${upgrade.name}'); 
                                 drawCollectionPerClick(); drawAutoCollectionRate();
-                                upgradeCollectionPerClick('${upgrade.name}'); upgradeAutoCollection()">${upgrade.cost}</button>
+                                upgradeCollectionPerClick('${upgrade.name}'); upgradeAutoCollection('${upgrade.name}')">${upgrade.cost}</button>
                             </div>
                         </div>
         `
@@ -159,7 +159,9 @@ function upgradeCollectionPerClick(name) {
 
     let upgrade = upgradeShop.find(upgrade => upgrade.name == name)
 
-    if (upgrade.cost <= collectedResource && upgrade.purchased == false) {
+    if (upgrade.cost <= collectedResource
+        && upgrade.purchased == false
+        && upgrade.type == "click") {
         collectedResource -= upgrade.cost
         collectionPerClick += upgrade.increase
         upgrade.purchased = true
@@ -177,19 +179,26 @@ function upgradeCollectionPerClick(name) {
 }
 
 
-function upgradeAutoCollection() {
+function upgradeAutoCollection(name) {
 
-    for (let i = 0; i < purchasedUpgrades.length; i++) {
-        const upgrade = purchasedUpgrades[i];
-        if (upgrade.type == "auto") {
-            autoCollection += upgrade.increase
-        }
-        // console.log(autoCollection)
+    let upgrade = upgradeShop.find(upgrade => upgrade.name == name)
+
+    if (upgrade.cost <= collectedResource
+        && upgrade.purchased == false
+        && upgrade.type == "auto") {
+        collectedResource -= upgrade.cost
+        autoCollection += upgrade.increase
+        upgrade.purchased = true
+        upgrade.cost = upgrade.cost * 2
+        drawPurchasedUpgrades()
+    } else {
+        upgrade.cost = upgrade.cost * 2
+        autoCollection = autoCollection * (upgrade.increase / 10)
     }
-}
 
-function updatedShopPrices() {
-
+    drawAutoCollectionRate()
+    drawCollectedResource()
+    drawUpgradeShop()
 
 }
 
