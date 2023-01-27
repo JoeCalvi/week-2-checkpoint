@@ -33,6 +33,7 @@ let purchasedUpgrades = []
 
 let collectedResource = 0
 let totalCollectedResource = 0
+let collectionPerClick = 1
 
 
 
@@ -91,6 +92,9 @@ function drawTotalCollectedResource() {
 
 function drawCollectionPerClick() {
 
+    let collectionPerClickTemplate = ""
+    collectionPerClickTemplate += ` Per Click: ${collectionPerClick} `
+    document.getElementById('collection-per-click').innerText = collectionPerClickTemplate
 
 }
 
@@ -127,7 +131,7 @@ function drawPurchasedUpgrades() {
         purchasedUpgradesTemplate += `
                     <div class="row">
                         <div class="col-12 d-flex align-items-center justify-content-center">
-                            <span>
+                            <span class="p-3">
                                 <h6>${upgrade.name}</h6>
                             </span>
                             <span>
