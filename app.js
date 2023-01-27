@@ -1,1 +1,9 @@
-console.log("javascript is wired")
+
+
+
+
+
+function collectResource() {
+
+    console.log("Resource Collected");
+}
