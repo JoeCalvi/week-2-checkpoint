@@ -5,4 +5,13 @@ body{
 
 .cat-img{
     height: 20em;
+    transform: translateX(-7.5em);
+}
+
+.upgrade-img{
+    height: 8em;
+}
+
+.purchased-upgrade-img{
+    height: 5em;
 }

@@ -51,34 +51,85 @@
     <main>
         <div class="container-fluid">
             <div class="row justify-content-center align-items-center">
-                <div class="col-8 d-flex justify-content-center align-items-center">
+                <div class="col-2 border border-danger p-4 m-3">
+                    <!-- SECTION drawPurchasedUpgrades template -->
+                    <div class="row">
+                        <div class="col-12 d-flex align-items-center justify-content-center">
+                            <span>
+                                <h6>Upgade Name</h6>
+                            </span>
+                            <span>
+                                <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/2b8e0dda-403a-4af3-9479-9fa0cb245f59/ddrlqt3-e46b2464-bbd2-421a-af97-21aa7ddabbf4.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzJiOGUwZGRhLTQwM2EtNGFmMy05NDc5LTlmYTBjYjI0NWY1OVwvZGRybHF0My1lNDZiMjQ2NC1iYmQyLTQyMWEtYWY5Ny0yMWFhN2RkYWJiZjQuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.zcsyXn6WXcz6NKo3j_vnT7fE6vuxEn0ZUmryYeLQrNM"
+                                    alt="hand" class="purchased-upgrade-img">
+                            </span>
+                        </div>
+                    </div>
+                    <!-- SECTION end -->
+                </div>
+                <div class="col-8 d-flex justify-content-center align-items-center p-5 m-3">
                     <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/3c93fa1c-58aa-4dd5-917f-2036b7a74ece/dbw2z8p-6fd5e452-11d4-44e3-94b5-9265ef41aeee.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzNjOTNmYTFjLTU4YWEtNGRkNS05MTdmLTIwMzZiN2E3NGVjZVwvZGJ3Mno4cC02ZmQ1ZTQ1Mi0xMWQ0LTQ0ZTMtOTRiNS05MjY1ZWY0MWFlZWUuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.f_NwpmtOsuqvzl_dMHXOAOZZPbLqS8X43E9h4FEGEvE"
                         alt="cat" class="cat-img" onclick="collectResource()">
                 </div>
             </div>
         </div>
         <div class="container-fluid">
-            <div class="row justify-content-center align-items-center">
+            <div class="row justify-content-center align-items-center p-3">
                 <!-- SECTION draw collectionPerClick template -->
-                <div class="col-md-2 d-flex justify-content-center align-items-start">
-                    <h5>
+                <div class="col-md-2 d-flex justify-content-center align-items-start border border-danger">
+                    <h5 class="p-2">
                         Per Click: 1
                     </h5>
                 </div>
                 <!-- SECTION drawCollectedResource template -->
-                <div class="col-md-3 d-flex justify-content-center align-items-start">
+                <div class="col-md-3 d-flex justify-content-center align-items-start p-3 m-3 border border-danger">
                     <h3>
                         Collection: 0
                     </h3>
                 </div>
                 <!-- SECTION drawAutomaticCollectionRate template -->
-                <div class="col-md-2 d-flex justify-content-center align-items-start">
-                    <h5>
+                <div class="col-md-2 d-flex justify-content-center align-items-start border border-danger">
+                    <h5 class="p-2">
                         Auto Per 3s: 0
                     </h5>
                 </div>
-
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row p-3">
+                <!-- SECTION drawUpgradesShop template -->
+                <div class="col-6 border border-danger">
+                    <div class="row">
+                        <div class="col-6">
+                            <div>
+                                <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/2b8e0dda-403a-4af3-9479-9fa0cb245f59/ddrlqt3-e46b2464-bbd2-421a-af97-21aa7ddabbf4.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzJiOGUwZGRhLTQwM2EtNGFmMy05NDc5LTlmYTBjYjI0NWY1OVwvZGRybHF0My1lNDZiMjQ2NC1iYmQyLTQyMWEtYWY5Ny0yMWFhN2RkYWJiZjQuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.zcsyXn6WXcz6NKo3j_vnT7fE6vuxEn0ZUmryYeLQrNM"
+                                    alt="hand" class="upgrade-img">
+                                <button class="btn btn-warning text-danger" onclick="purchaseUpgrade()">Upgrade $cost</button>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div>
+                                <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/2b8e0dda-403a-4af3-9479-9fa0cb245f59/ddrlqt3-e46b2464-bbd2-421a-af97-21aa7ddabbf4.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzJiOGUwZGRhLTQwM2EtNGFmMy05NDc5LTlmYTBjYjI0NWY1OVwvZGRybHF0My1lNDZiMjQ2NC1iYmQyLTQyMWEtYWY5Ny0yMWFhN2RkYWJiZjQuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.zcsyXn6WXcz6NKo3j_vnT7fE6vuxEn0ZUmryYeLQrNM"
+                                    alt="hand" class="upgrade-img">
+                                <button class="btn btn-warning text-danger" onclick="purchaseUpgrade()">Upgrade $cost</button>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div>
+                                <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/2b8e0dda-403a-4af3-9479-9fa0cb245f59/ddrlqt3-e46b2464-bbd2-421a-af97-21aa7ddabbf4.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzJiOGUwZGRhLTQwM2EtNGFmMy05NDc5LTlmYTBjYjI0NWY1OVwvZGRybHF0My1lNDZiMjQ2NC1iYmQyLTQyMWEtYWY5Ny0yMWFhN2RkYWJiZjQuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.zcsyXn6WXcz6NKo3j_vnT7fE6vuxEn0ZUmryYeLQrNM"
+                                    alt="hand" class="upgrade-img">
+                                <button class="btn btn-warning text-danger" onclick="purchaseUpgrade()">Upgrade $cost</button>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div>
+                                <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/2b8e0dda-403a-4af3-9479-9fa0cb245f59/ddrlqt3-e46b2464-bbd2-421a-af97-21aa7ddabbf4.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzJiOGUwZGRhLTQwM2EtNGFmMy05NDc5LTlmYTBjYjI0NWY1OVwvZGRybHF0My1lNDZiMjQ2NC1iYmQyLTQyMWEtYWY5Ny0yMWFhN2RkYWJiZjQuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.zcsyXn6WXcz6NKo3j_vnT7fE6vuxEn0ZUmryYeLQrNM"
+                                    alt="hand" class="upgrade-img">
+                                <button class="btn btn-warning text-danger" onclick="purchaseUpgrade()">Upgrade $cost</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                <!-- SECTION end -->
             </div>
         </div>
 
