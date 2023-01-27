@@ -40,6 +40,7 @@ function collectResource() {
     console.log("Collected Resource:", collectedResource, "Total Collected:", totalCollectedResource);
 
     drawCollectedResource()
+    drawTotalCollectedResource()
 }
 
 function autoCollectResource() {
@@ -66,6 +67,17 @@ function drawCollectedResource() {
 }
 
 function drawTotalCollectedResource() {
+
+    let totalCollectedResourceTemplate = ""
+    totalCollectedResourceTemplate += `
+    <div class="row text-center" id="total-collected">
+                        <h6>
+                            Ever: ${totalCollectedResource}
+                        </h6>
+                    </div>
+    `
+
+    document.getElementById('total-collected').innerHTML = totalCollectedResourceTemplate
 
 }
 
