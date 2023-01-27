@@ -15,3 +15,15 @@ body{
 .purchased-upgrade-img{
     height: 5em;
 }
+
+.card-size{
+    height: 3em;
+}
+
+.arrow-placement{
+    transform: translateY(-.5em);
+}
+
+.stats-placement{
+    transform: translateY(5em);
+}
