@@ -57,7 +57,7 @@ function purchaseUpgrade(name) {
 
     purchasedUpgrades.push(purchasedUpgrade)
 
-    console.log(purchasedUpgrades)
+    // console.log(purchasedUpgrades)
 }
 
 function drawCollectedResource() {
@@ -111,7 +111,7 @@ function drawUpgradeShop() {
                             <div class="pb-3">
                                 <img src="${upgrade.img}"
                                     alt="hand" class="upgrade-img p-3">
-                                <button class="btn btn-warning text-danger" onclick="purchaseUpgrade('${upgrade.name}')">${upgrade.cost}</button>
+                                <button class="btn btn-warning text-danger" onclick="purchaseUpgrade('${upgrade.name}'); drawPurchasedUpgrades()">${upgrade.cost}</button>
                             </div>
                         </div>
         `
@@ -121,6 +121,24 @@ function drawUpgradeShop() {
 }
 
 function drawPurchasedUpgrades() {
+
+    let purchasedUpgradesTemplate = ""
+    purchasedUpgrades.forEach(upgrade => {
+        purchasedUpgradesTemplate += `
+                    <div class="row">
+                        <div class="col-12 d-flex align-items-center justify-content-center">
+                            <span>
+                                <h6>${upgrade.name}</h6>
+                            </span>
+                            <span>
+                                <img src="${upgrade.img}"
+                                    alt="hand" class="purchased-upgrade-img">
+                            </span>
+                        </div>
+                    </div>
+        `
+    })
+    document.getElementById('purchased-upgrades').innerHTML = purchasedUpgradesTemplate
 
 }
 
