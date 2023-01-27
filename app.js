@@ -55,9 +55,9 @@ function purchaseUpgrade(name) {
 
     let purchasedUpgrade = upgradeShop.find(upgrade => upgrade.name == name)
 
-    purchasedUpgrades.push(purchaseUpgrade)
+    purchasedUpgrades.push(purchasedUpgrade)
 
-    console.log("Purchased Upgrades:", purchasedUpgrade.name)
+    console.log(purchasedUpgrades)
 }
 
 function drawCollectedResource() {
