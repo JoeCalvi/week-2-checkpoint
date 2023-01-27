@@ -33,12 +33,44 @@ let totalCollectedResource = 0
 
 
 
-function collectResource(){
+function collectResource() {
 
     console.log("Resource Collected");
 }
 
-function purchaseUpgrade(){
+function autoCollectResource() {
+
+}
+
+function purchaseUpgrade() {
 
     console.log("Upgrade Purchased")
+}
+
+function drawCollectedResource() {
+
+}
+
+function drawTotalCollectedResource() {
+
+}
+
+function drawCollectionPerClick() {
+
+}
+
+function drawAutoCollectionRate() {
+
+}
+
+function drawUpgradeShop() {
+
+}
+
+function drawPurchasedUpgrades() {
+
+}
+
+function drawTrophy(){
+    
 }

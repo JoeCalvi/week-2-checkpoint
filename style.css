@@ -12,6 +12,10 @@ body{
     height: 6em;
 }
 
+.trophy-img{
+    height: 2em;
+}
+
 .purchased-upgrade-img{
     height: 5em;
 }
