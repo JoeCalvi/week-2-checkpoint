@@ -35,7 +35,9 @@ let totalCollectedResource = 0
 
 function collectResource() {
 
-    console.log("Resource Collected");
+    collectedResource += 1
+    totalCollectedResource += 1
+    console.log("Collected Resource:", collectedResource, "Total Collected:", totalCollectedResource);
 }
 
 function autoCollectResource() {
@@ -71,6 +73,6 @@ function drawPurchasedUpgrades() {
 
 }
 
-function drawTrophy(){
-    
+function drawTrophy() {
+
 }
