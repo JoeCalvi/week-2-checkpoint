@@ -38,6 +38,8 @@ function collectResource() {
     collectedResource += 1
     totalCollectedResource += 1
     console.log("Collected Resource:", collectedResource, "Total Collected:", totalCollectedResource);
+
+    drawCollectedResource()
 }
 
 function autoCollectResource() {
@@ -51,6 +53,16 @@ function purchaseUpgrade() {
 
 function drawCollectedResource() {
 
+    let collectedResourceTemplate = ""
+    collectedResourceTemplate += `
+    <div class="row text-center">
+                        <h3>
+                            Current: ${collectedResource}
+                        </h3>
+                    </div>
+    `
+
+    document.getElementById('collected-resource').innerHTML = collectedResourceTemplate
 }
 
 function drawTotalCollectedResource() {
