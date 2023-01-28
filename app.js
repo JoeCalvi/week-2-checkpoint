@@ -106,6 +106,7 @@ function purchaseUpgrade(name) {
     if (upgrade.cost <= collectedResource
         && upgrade.type == "click") {
         drawPurchasedUpgrades()
+        drawTrophy()
         collectedResource -= upgrade.cost
         collectionPerClick += upgrade.increase
         upgrade.purchased = true
@@ -224,12 +225,13 @@ function drawPurchasedUpgrades() {
 function drawTrophy() {
 
     let trophyTemplate = ""
+
     trophyTemplate += `
-      <div class="col-3">
-                            <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/04cc8621-d568-4939-9b57-79314b377bfb/d7xpdou-cdb777da-468d-47e8-93d1-fd10860d539f.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzA0Y2M4NjIxLWQ1NjgtNDkzOS05YjU3LTc5MzE0YjM3N2JmYlwvZDd4cGRvdS1jZGI3NzdkYS00NjhkLTQ3ZTgtOTNkMS1mZDEwODYwZDUzOWYuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.5O5rLuhlOGK6v4hDwJzZ4PDPr0Qw6663mVkSaw3LTU8"
-                                alt="" class="trophy-img">
-                        </div>
-    `
+          <div class="col-3">
+                                <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/04cc8621-d568-4939-9b57-79314b377bfb/d7xpdou-cdb777da-468d-47e8-93d1-fd10860d539f.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzA0Y2M4NjIxLWQ1NjgtNDkzOS05YjU3LTc5MzE0YjM3N2JmYlwvZDd4cGRvdS1jZGI3NzdkYS00NjhkLTQ3ZTgtOTNkMS1mZDEwODYwZDUzOWYuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.5O5rLuhlOGK6v4hDwJzZ4PDPr0Qw6663mVkSaw3LTU8"
+                                    alt="" class="trophy-img" title=" : .">
+                            </div>
+        `
     document.getElementById('trophy-shelf').innerHTML = trophyTemplate
 }
 
