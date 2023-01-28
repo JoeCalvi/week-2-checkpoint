@@ -35,7 +35,7 @@ let upgradeShop = [
 
 let purchasedUpgrades = []
 
-let collectedResource = 0
+let collectedResource = 16600
 let totalCollectedResource = 0
 let collectionPerClick = 1
 let autoCollection = 0
@@ -146,10 +146,10 @@ function drawUpgradeShop() {
     let upgradeShopTemplate = ""
     upgradeShop.forEach(upgrade => {
         upgradeShopTemplate += `
-                        <div class="col-3">
+                        <div class="col-3 upgrade-shop-text">
                             <h5 class="text-center pt-2">
                                 ${upgrade.name}
-                            </h5> <p>Buff Type: ${upgrade.type}</p>
+                            </h5> <p>${upgrade.type}</p>
                             <div class="pb-3">
                                 <img src="${upgrade.img}" alt="hand" class="upgrade-img p-3">
                                 <button class="btn btn-warning text-danger" 

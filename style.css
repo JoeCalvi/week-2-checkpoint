@@ -1,6 +1,11 @@
+
 body{
-    background-color: white;
-    color: crimson;
+    background-image: url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/febbf4ce-1af3-4630-b1a4-7a52d84274ee/deflomc-99273a4d-15db-4e18-9c94-597778275422.jpg/v1/fill/w_1181,h_676,q_70,strp/cats_in_the_woods_by_raphaelle_deslandes_deflomc-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NzMzIiwicGF0aCI6IlwvZlwvZmViYmY0Y2UtMWFmMy00NjMwLWIxYTQtN2E1MmQ4NDI3NGVlXC9kZWZsb21jLTk5MjczYTRkLTE1ZGItNGUxOC05Yzk0LTU5Nzc3ODI3NTQyMi5qcGciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.Hd7v0JM-4AXVJ5DP6ldaQztrehS06LuEQq_b7Wq5bIY);
+    background-position: center;
+    background-size: cover;
+    color: #ede983;
+    text-shadow: 1px 2px 2px #673838;
+    font-family: 'Kavoon', cursive;
 }
 
 .cat-img{
@@ -20,3 +25,12 @@ body{
     height: 5em;
 }
 
+.upgrade-shop-text{
+     color: #ff9102;
+    text-shadow: 1px 2px 2px #673838;
+    font-family: 'Kavoon', cursive;
+}
+
+.box-shadow{
+    box-shadow: 1px 2px 2px black;
+}
