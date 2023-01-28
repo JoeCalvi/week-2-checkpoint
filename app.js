@@ -35,14 +35,14 @@ let upgradeShop = [
 
 let purchasedUpgrades = []
 
-let trophyCabinet = [
+let availableTrophies = [
     {
         name: "Pebbles",
         requirement: "Gained a new friend."
     },
     {
         name: "Birdie",
-        requirement: "Gained a new friend"
+        requirement: "Gained a new friend."
     },
     {
         name: "Winkle",
@@ -50,7 +50,7 @@ let trophyCabinet = [
     },
     {
         name: "Jojo",
-        requirement: "Gained a new friend"
+        requirement: "Gained a new friend."
     },
     {
         name: "The Whole Flock",
@@ -69,6 +69,8 @@ let trophyCabinet = [
         requirement: "Earn 1,000,000 Affection"
     },
 ]
+
+let trophyCase = []
 
 let collectedResource = 16600
 let totalCollectedResource = 0
@@ -106,7 +108,6 @@ function purchaseUpgrade(name) {
     if (upgrade.cost <= collectedResource
         && upgrade.type == "click") {
         drawPurchasedUpgrades()
-        drawTrophy()
         collectedResource -= upgrade.cost
         collectionPerClick += upgrade.increase
         upgrade.purchased = true
@@ -122,12 +123,31 @@ function purchaseUpgrade(name) {
         window.alert("You haven't pet the cat enough :(")
     }
 
-    console.log("autocollection:", autoCollection, "perclick", collectionPerClick)
+    let trophy = availableTrophies.find(trophy => trophy.name == name)
+
+    if (trophy.name == "Pebbles") {
+        trophyCase.push(trophy)
+    }
+
+    if (trophy.name == "Birdie") {
+        trophyCase.push(trophy)
+    }
+
+    if (trophy.name == "Winkle") {
+        trophyCase.push(trophy)
+    }
+
+    if (trophy.name == "Jojo") {
+        trophyCase.push(trophy)
+    }
+
+    console.log(trophyCase)
 
     drawCollectionPerClick()
     drawAutoCollectionRate()
     drawCollectedResource()
     drawUpgradeShop()
+    drawTrophyCase()
     // console.log(purchasedUpgrades)
 }
 
@@ -222,22 +242,25 @@ function drawPurchasedUpgrades() {
 
 }
 
-function drawTrophy() {
+function drawTrophyCase() {
 
     let trophyTemplate = ""
-
-    trophyTemplate += `
-          <div class="col-3">
-                                <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/04cc8621-d568-4939-9b57-79314b377bfb/d7xpdou-cdb777da-468d-47e8-93d1-fd10860d539f.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzA0Y2M4NjIxLWQ1NjgtNDkzOS05YjU3LTc5MzE0YjM3N2JmYlwvZDd4cGRvdS1jZGI3NzdkYS00NjhkLTQ3ZTgtOTNkMS1mZDEwODYwZDUzOWYuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.5O5rLuhlOGK6v4hDwJzZ4PDPr0Qw6663mVkSaw3LTU8"
-                                    alt="" class="trophy-img" title=" : .">
-                            </div>
+    trophyCase.forEach(trophy => {
+        trophyTemplate += `
+                           <div class="col-3">
+                            <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/04cc8621-d568-4939-9b57-79314b377bfb/d7xpdou-cdb777da-468d-47e8-93d1-fd10860d539f.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzA0Y2M4NjIxLWQ1NjgtNDkzOS05YjU3LTc5MzE0YjM3N2JmYlwvZDd4cGRvdS1jZGI3NzdkYS00NjhkLTQ3ZTgtOTNkMS1mZDEwODYwZDUzOWYuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.5O5rLuhlOGK6v4hDwJzZ4PDPr0Qw6663mVkSaw3LTU8"
+                                alt="" class="trophy-img" title="${trophy.name}: ${trophy.requirement}">
+                        </div>
         `
-    document.getElementById('trophy-shelf').innerHTML = trophyTemplate
+    })
+    document.getElementById('trophy-case').innerHTML = trophyTemplate
 }
+
 
 drawUpgradeShop()
 drawCollectedResource()
 drawTotalCollectedResource()
 drawCollectionPerClick()
 drawAutoCollectionRate()
+drawTrophyCase()
 setInterval(autoCollectResource, 3000)
