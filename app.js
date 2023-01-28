@@ -35,7 +35,7 @@ let upgradeShop = [
 
 let purchasedUpgrades = []
 
-let collectedResource = 10000
+let collectedResource = 0
 let totalCollectedResource = 0
 let collectionPerClick = 1
 let autoCollection = 0
@@ -154,7 +154,8 @@ function drawUpgradeShop() {
                                 <img src="${upgrade.img}" alt="hand" class="upgrade-img p-3">
                                 <button class="btn btn-warning text-danger" 
                                 onclick="purchaseUpgrade('${upgrade.name}'); 
-                                drawCollectionPerClick(); drawAutoCollectionRate()">${upgrade.cost}</button>
+                                drawCollectionPerClick(); drawAutoCollectionRate()" 
+                                title="Upgrade ${upgrade.type} by ${upgrade.increase}">${upgrade.cost}</button>
                             </div>
                         </div>
         `
