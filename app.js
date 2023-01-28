@@ -35,7 +35,7 @@ let upgradeShop = [
 
 let purchasedUpgrades = []
 
-let collectedResource = 1000
+let collectedResource = 0
 let totalCollectedResource = 0
 let collectionPerClick = 1
 let autoCollection = 0
