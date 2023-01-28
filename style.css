@@ -5,7 +5,7 @@ body{
 
 .cat-img{
     height: 20em;
-    transform: translateX(3em);
+    transform: translateX(-7em);
 }
 
 .upgrade-img{
@@ -20,6 +20,3 @@ body{
     height: 5em;
 }
 
-.card-size{
-    height: 2em;
-}
