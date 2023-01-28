@@ -35,6 +35,41 @@ let upgradeShop = [
 
 let purchasedUpgrades = []
 
+let trophyCabinet = [
+    {
+        name: "Pebbles",
+        requirement: "Gained a new friend."
+    },
+    {
+        name: "Birdie",
+        requirement: "Gained a new friend"
+    },
+    {
+        name: "Winkle",
+        requirement: "Gained a new friend."
+    },
+    {
+        name: "Jojo",
+        requirement: "Gained a new friend"
+    },
+    {
+        name: "The Whole Flock",
+        requirement: "Purhase all upgrades."
+    },
+    {
+        name: "Enough to Go Around",
+        requirement: "Upgrade all friends at least once."
+    },
+    {
+        name: "Cat Person",
+        requirement: "Earn 500,000 Affection"
+    },
+    {
+        name: "Time-Waster",
+        requirement: "Earn 1,000,000 Affection"
+    },
+]
+
 let collectedResource = 16600
 let totalCollectedResource = 0
 let collectionPerClick = 1
@@ -101,7 +136,7 @@ function drawCollectedResource() {
     collectedResourceTemplate += `
     <div class="row text-center">
                         <h3>
-                            Current: ${collectedResource}
+                            Affection: ${collectedResource}
                         </h3>
                     </div>
     `
