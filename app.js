@@ -35,7 +35,7 @@ let upgradeShop = [
 
 let purchasedUpgrades = []
 
-let collectedResource = 10000
+let collectedResource = 1000
 let totalCollectedResource = 0
 let collectionPerClick = 1
 let autoCollection = 0
@@ -44,8 +44,8 @@ let autoCollection = 0
 
 function collectResource() {
 
-    collectedResource += 1
-    totalCollectedResource += 1
+    collectedResource += collectionPerClick
+    totalCollectedResource += collectionPerClick
     console.log("Collected Resource:", collectedResource, "Total Collected:", totalCollectedResource);
 
     drawCollectedResource()
@@ -54,13 +54,54 @@ function collectResource() {
 
 function autoCollectResource() {
 
+    collectedResource += autoCollection
+    totalCollectedResource += autoCollection
+
+    drawCollectedResource()
+    drawTotalCollectedResource()
 }
 
 function purchaseUpgrade(name) {
 
-    let purchasedUpgrade = upgradeShop.find(upgrade => upgrade.name == name)
+    let upgrade = upgradeShop.find(upgrade => upgrade.name == name)
+    if (upgrade.purchased == false) {
+        purchasedUpgrades.push(upgrade)
+    }
 
-    purchasedUpgrades.push(purchasedUpgrade)
+    if (upgrade.cost <= collectedResource
+        && upgrade.purchased == false
+        && upgrade.type == "click") {
+        drawPurchasedUpgrades()
+        collectedResource -= upgrade.cost
+        collectionPerClick += upgrade.increase
+        upgrade.purchased = true
+        upgrade.cost = upgrade.cost * 2
+    } else if (upgrade.cost <= collectedResource
+        && upgrade.purchased == false
+        && upgrade.type == "auto") {
+        drawPurchasedUpgrades()
+        collectedResource -= upgrade.cost
+        autoCollection += upgrade.increase
+        upgrade.purchased = true
+        upgrade.cost = upgrade.cost * 2
+    } else if (upgrade.cost <= collectedResource) {
+        collectedResource -= upgrade.cost
+        upgrade.cost = upgrade.cost * 2
+        collectionPerClick = collectionPerClick * (upgrade.increase / 10)
+    } else if (upgrade.cost <= collectedResource) {
+        collectedResource -= upgrade.cost
+        upgrade.cost = upgrade.cost * 2
+        autoCollection = autoCollection * (upgrade.increase / 10)
+    } else if (upgrade.cost > collectedResource) {
+        window.alert("You haven't pet the cat enough :(")
+    }
+
+    console.log("autocollection:", autoCollection, "perclick", collectionPerClick)
+
+    drawCollectionPerClick()
+    drawAutoCollectionRate()
+    drawCollectedResource()
+    drawUpgradeShop()
     // console.log(purchasedUpgrades)
 }
 
@@ -123,8 +164,7 @@ function drawUpgradeShop() {
                                 <img src="${upgrade.img}" alt="hand" class="upgrade-img p-3">
                                 <button class="btn btn-warning text-danger" 
                                 onclick="purchaseUpgrade('${upgrade.name}'); 
-                                drawCollectionPerClick(); drawAutoCollectionRate();
-                                upgradeCollectionPerClick('${upgrade.name}'); upgradeAutoCollection('${upgrade.name}')">${upgrade.cost}</button>
+                                drawCollectionPerClick(); drawAutoCollectionRate()">${upgrade.cost}</button>
                             </div>
                         </div>
         `
@@ -155,52 +195,56 @@ function drawPurchasedUpgrades() {
 
 }
 
-function upgradeCollectionPerClick(name) {
+// function upgradeCollectionPerClick(name) {
 
-    let upgrade = upgradeShop.find(upgrade => upgrade.name == name)
+//     let upgrade = upgradeShop.find(upgrade => upgrade.name == name)
 
-    if (upgrade.cost <= collectedResource
-        && upgrade.purchased == false
-        && upgrade.type == "click") {
-        collectedResource -= upgrade.cost
-        collectionPerClick += upgrade.increase
-        upgrade.purchased = true
-        upgrade.cost = upgrade.cost * 2
-        drawPurchasedUpgrades()
-    } else {
-        upgrade.cost = upgrade.cost * 2
-        collectionPerClick = collectionPerClick * (upgrade.increase / 10)
-    }
+//     if (upgrade.cost <= collectedResource
+//         && upgrade.purchased == false
+//         && upgrade.type == "click") {
+//         collectedResource -= upgrade.cost
+//         collectionPerClick += upgrade.increase
+//         upgrade.purchased = true
+//         upgrade.cost = upgrade.cost * 2
+//         drawPurchasedUpgrades()
+//     } else if (upgrade.cost <= collectedResource) {
+//         collectedResource -= upgrade.cost
+//         upgrade.cost = upgrade.cost * 2
+//         collectionPerClick = collectionPerClick * (upgrade.increase / 10)
+//     } else { window.alert("You haven't pet the cat enough :(") }
 
-    drawCollectionPerClick()
-    drawCollectedResource()
-    drawUpgradeShop()
+//     drawCollectionPerClick()
+//     drawCollectedResource()
+//     drawUpgradeShop()
 
-}
+// }
 
 
-function upgradeAutoCollection(name) {
+// function upgradeAutoCollection(name) {
 
-    let upgrade = upgradeShop.find(upgrade => upgrade.name == name)
+//     let upgrade = upgradeShop.find(upgrade => upgrade.name == name)
 
-    if (upgrade.cost <= collectedResource
-        && upgrade.purchased == false
-        && upgrade.type == "auto") {
-        collectedResource -= upgrade.cost
-        autoCollection += upgrade.increase
-        upgrade.purchased = true
-        upgrade.cost = upgrade.cost * 2
-        drawPurchasedUpgrades()
-    } else {
-        upgrade.cost = upgrade.cost * 2
-        autoCollection = autoCollection * (upgrade.increase / 10)
-    }
+//     if (upgrade.cost <= collectedResource
+//         && upgrade.purchased == false
+//         && upgrade.type == "auto") {
+//         collectedResource -= upgrade.cost
+//         autoCollection += upgrade.increase
+//         upgrade.purchased = true
+//         upgrade.cost = upgrade.cost * 2
+//         drawPurchasedUpgrades()
+//     } else if (upgrade.cost <= collectedResource) {
+//         collectedResource -= upgrade.cost
+//         upgrade.cost = upgrade.cost * 2
+//         autoCollection = autoCollection * (upgrade.increase / 10)
+//     } else { window.alert("You haven't pet the cat enough :(") }
 
-    drawAutoCollectionRate()
-    drawCollectedResource()
-    drawUpgradeShop()
+//     console.log(autoCollection)
 
-}
+//     drawAutoCollectionRate()
+//     drawCollectedResource()
+//     drawUpgradeShop()
+
+// }
 
 function drawTrophy() {
 
