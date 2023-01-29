@@ -179,8 +179,6 @@ function purchaseUpgrade(name) {
     drawCollectedResource()
     drawUpgradeShop()
     drawTrophyCase()
-    acquireWholeFlock()
-    upgradeAllFriendsOnce()
     acquireAllTrophies()
     // console.log(purchasedUpgrades)
 }
@@ -239,8 +237,10 @@ function drawUpgradeShop() {
                             <h5 class="text-center pt-2">
                                 ${upgrade.name}
                             </h5> <p>${upgrade.type}</p>
-                            <div class="pb-3">
+                            <div>
                                 <img src="${upgrade.img}" alt="hand" class="upgrade-img p-3">
+                            </div>
+                            <div class="pb-3">
                                 <button class="btn btn-warning text-danger" 
                                 onclick="purchaseUpgrade('${upgrade.name}'); 
                                 drawCollectionPerClick(); drawAutoCollectionRate(); 
