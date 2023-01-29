@@ -80,8 +80,8 @@ let availableTrophies = [
 
 let trophyCase = []
 
-let collectedResource = 900000
-let totalCollectedResource = 0
+let collectedResource = 999999
+let totalCollectedResource = 999999
 let collectionPerClick = 1
 let autoCollection = 0
 
@@ -308,6 +308,18 @@ function upgradeAllFriendsOnce() {
         upgradedAllTrophy.achieved = true
         window.alert("You upgraded all friends at least once!")
     }
+}
+
+function acquireCatPerson(){
+    
+    if (totalCollectedResource == 1000000) {
+        let catPersonTrophy = availableTrophies.find(trophy => trophy.name == 'Cat Person')
+        trophyCase.push(catPersonTrophy)
+        drawTrophyCase()
+        catPersonTrophy.achieved = true
+        window.alert("You received 1,000,000 total affection!")
+    }
+
 }
 
 
