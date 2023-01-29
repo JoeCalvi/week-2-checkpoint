@@ -148,6 +148,7 @@ function purchaseUpgrade(name) {
     drawCollectedResource()
     drawUpgradeShop()
     drawTrophyCase()
+    acquireWholeFlock()
     // console.log(purchasedUpgrades)
 }
 
@@ -254,6 +255,21 @@ function drawTrophyCase() {
         `
     })
     document.getElementById('trophy-case').innerHTML = trophyTemplate
+}
+
+function acquireWholeFlock() {
+
+    let wholeFlockAchieved = upgradeShop.every((upgrade) => {
+        return upgrade.purchased == true;
+    });
+
+    if (wholeFlockAchieved) {
+        window.alert("You collected all friends!")
+        let wholeFlockTrophy = availableTrophies.find(trophy => trophy.name == 'The Whole Flock')
+        trophyCase.push(wholeFlockTrophy)
+    }
+
+    drawTrophyCase()
 }
 
 
