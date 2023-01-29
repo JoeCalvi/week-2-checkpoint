@@ -58,7 +58,7 @@ let availableTrophies = [
     },
     {
         name: "The Whole Flock",
-        requirement: "Purhase all upgrades.",
+        requirement: "Purchase all upgrades.",
         achieved: false
     },
     {
@@ -80,8 +80,8 @@ let availableTrophies = [
 
 let trophyCase = []
 
-let collectedResource = 999999
-let totalCollectedResource = 999999
+let collectedResource = 0
+let totalCollectedResource = 0
 let collectionPerClick = 1
 let autoCollection = 0
 
@@ -114,6 +114,7 @@ function autoCollectResource() {
     if (catPersonTrophy.achieved == false) {
         acquireCatPerson()
     }
+    acquireAllTrophies()
 }
 
 function purchaseUpgrade(name) {
@@ -121,6 +122,15 @@ function purchaseUpgrade(name) {
     let upgrade = upgradeShop.find(upgrade => upgrade.name == name)
     if (upgrade.purchased == false) {
         purchasedUpgrades.push(upgrade)
+        if (upgrade.name == "Pebbles") {
+            window.alert('You gained Pebbles as a friend!')
+        } else if (upgrade.name == "Birdie") {
+            window.alert('You gained Birdie as a friend!')
+        } else if (upgrade.name == "Winkle") {
+            window.alert('You gained Winkle as a friend!')
+        } else if (upgrade.name == "Jojo") {
+            window.alert('You gained Jojo as a friend!')
+        }
     }
 
     if (upgrade.cost <= collectedResource
@@ -233,7 +243,8 @@ function drawUpgradeShop() {
                                 <img src="${upgrade.img}" alt="hand" class="upgrade-img p-3">
                                 <button class="btn btn-warning text-danger" 
                                 onclick="purchaseUpgrade('${upgrade.name}'); 
-                                drawCollectionPerClick(); drawAutoCollectionRate()" 
+                                drawCollectionPerClick(); drawAutoCollectionRate(); 
+                                acquireWholeFlock(); upgradeAllFriendsOnce()" 
                                 title="Upgrade ${upgrade.type} by ${upgrade.increase}">${upgrade.cost}</button>
                             </div>
                         </div>
