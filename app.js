@@ -38,35 +38,43 @@ let purchasedUpgrades = []
 let availableTrophies = [
     {
         name: "Pebbles",
-        requirement: "Gained a new friend."
+        requirement: "Gained Pebbles as a friend.",
+        achieved: false
     },
     {
         name: "Birdie",
-        requirement: "Gained a new friend."
+        requirement: "Gained Birdie as a friend.",
+        achieved: false
     },
     {
         name: "Winkle",
-        requirement: "Gained a new friend."
+        requirement: "Gained Winkle as a friend.",
+        achieved: false
     },
     {
         name: "Jojo",
-        requirement: "Gained a new friend."
+        requirement: "Gained Jojo as a friend.",
+        achieved: false
     },
     {
         name: "The Whole Flock",
-        requirement: "Purhase all upgrades."
+        requirement: "Purhase all upgrades.",
+        achieved: false
     },
     {
         name: "Enough to Go Around",
-        requirement: "Upgrade all friends at least once."
+        requirement: "Upgrade all friends at least once.",
+        achieved: false
     },
     {
         name: "Cat Person",
-        requirement: "Earn 500,000 Affection"
+        requirement: "Earn 1,000,000 Affection",
+        achieved: false
     },
     {
         name: "Time-Waster",
-        requirement: "Earn 1,000,000 Affection"
+        requirement: "Acquire all trophies",
+        achieved: false
     },
 ]
 
@@ -125,23 +133,26 @@ function purchaseUpgrade(name) {
 
     let trophy = availableTrophies.find(trophy => trophy.name == name)
 
-    if (trophy.name == "Pebbles") {
+    if (trophy.name == "Pebbles" && trophy.achieved == false) {
         trophyCase.push(trophy)
+        trophy.achieved = true
     }
 
-    if (trophy.name == "Birdie") {
+    if (trophy.name == "Birdie" && trophy.achieved == false) {
         trophyCase.push(trophy)
+        trophy.achieved = true
     }
 
-    if (trophy.name == "Winkle") {
+    if (trophy.name == "Winkle" && trophy.achieved == false) {
         trophyCase.push(trophy)
+        trophy.achieved = true
     }
 
-    if (trophy.name == "Jojo") {
+    if (trophy.name == "Jojo" && trophy.achieved == false) {
         trophyCase.push(trophy)
+        trophy.achieved = true
     }
 
-    console.log(trophyCase)
 
     drawCollectionPerClick()
     drawAutoCollectionRate()
@@ -263,13 +274,32 @@ function acquireWholeFlock() {
         return upgrade.purchased == true;
     });
 
-    if (wholeFlockAchieved) {
-        window.alert("You collected all friends!")
+    let purchasedPebbles = upgradeShop.find(upgrade => upgrade.name == "Pebbles" && upgrade.cost == 200)
+    let purchasedBirdie = upgradeShop.find(upgrade => upgrade.name == "Birdie" && upgrade.cost == 2000)
+    let purchasedWinkle = upgradeShop.find(upgrade => upgrade.name == "Winkle" && upgrade.cost == 10000)
+    let purchasedJojo = upgradeShop.find(upgrade => upgrade.name == "Jojo" && upgrade.cost == 20000)
+
+    if (wholeFlockAchieved
+        && purchasedPebbles
+        && purchasedBirdie
+        && purchasedWinkle
+        && purchasedJojo) {
         let wholeFlockTrophy = availableTrophies.find(trophy => trophy.name == 'The Whole Flock')
         trophyCase.push(wholeFlockTrophy)
+        drawTrophyCase()
+        wholeFlockTrophy.achieved = true
+        window.alert("You collected all friends!")
     }
 
-    drawTrophyCase()
+}
+
+function upgradeAllFriendsOnce() {
+
+    let upgradedPebbles = upgradeShop.find(upgrade => upgrade.name == "Pebbles" && upgrade.cost >= 400)
+    let upgradedBirdie = upgradeShop.find(upgrade => upgrade.name == "Birdie" && upgrade.cost >= 4000)
+    let upgradedWinkle = upgradeShop.find(upgrade => upgrade.name == "Winkle" && upgrade.cost >= 20000)
+    let upgradedJojo = upgradeShop.find(upgrade => upgrade.name == "Jojo" && upgrade.cost >= 40000)
+    console.log(upgradedPebbles, upgradedBirdie, upgradedWinkle, upgradedJojo)
 }
 
 
