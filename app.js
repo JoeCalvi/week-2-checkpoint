@@ -80,7 +80,7 @@ let availableTrophies = [
 
 let trophyCase = []
 
-let collectedResource = 16600
+let collectedResource = 900000
 let totalCollectedResource = 0
 let collectionPerClick = 1
 let autoCollection = 0
@@ -160,6 +160,7 @@ function purchaseUpgrade(name) {
     drawUpgradeShop()
     drawTrophyCase()
     acquireWholeFlock()
+    upgradeAllFriendsOnce()
     // console.log(purchasedUpgrades)
 }
 
@@ -295,11 +296,18 @@ function acquireWholeFlock() {
 
 function upgradeAllFriendsOnce() {
 
-    let upgradedPebbles = upgradeShop.find(upgrade => upgrade.name == "Pebbles" && upgrade.cost >= 400)
-    let upgradedBirdie = upgradeShop.find(upgrade => upgrade.name == "Birdie" && upgrade.cost >= 4000)
-    let upgradedWinkle = upgradeShop.find(upgrade => upgrade.name == "Winkle" && upgrade.cost >= 20000)
-    let upgradedJojo = upgradeShop.find(upgrade => upgrade.name == "Jojo" && upgrade.cost >= 40000)
-    console.log(upgradedPebbles, upgradedBirdie, upgradedWinkle, upgradedJojo)
+    let upgradedPebbles = upgradeShop.find(upgrade => upgrade.name == "Pebbles" && upgrade.cost == 400)
+    let upgradedBirdie = upgradeShop.find(upgrade => upgrade.name == "Birdie" && upgrade.cost == 4000)
+    let upgradedWinkle = upgradeShop.find(upgrade => upgrade.name == "Winkle" && upgrade.cost == 20000)
+    let upgradedJojo = upgradeShop.find(upgrade => upgrade.name == "Jojo" && upgrade.cost == 40000)
+
+    if (upgradedPebbles && upgradedBirdie && upgradedWinkle && upgradedJojo) {
+        let upgradedAllTrophy = availableTrophies.find(trophy => trophy.name == 'Enough to Go Around')
+        trophyCase.push(upgradedAllTrophy)
+        drawTrophyCase()
+        upgradedAllTrophy.achieved = true
+        window.alert("You upgraded all friends at least once!")
+    }
 }
 
 
