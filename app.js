@@ -2,7 +2,7 @@ let upgradeShop = [
     {
         name: "Pebbles",
         cost: 100,
-        increase: 20,
+        increase: 50,
         type: "click",
         purchased: false,
         upgraded: false,
@@ -11,7 +11,7 @@ let upgradeShop = [
     {
         name: "Birdie",
         cost: 1000,
-        increase: 50,
+        increase: 100,
         type: "click",
         purchased: false,
         upgraded: false,
@@ -20,7 +20,7 @@ let upgradeShop = [
     {
         name: "Winkle",
         cost: 5000,
-        increase: 20,
+        increase: 50,
         type: "auto",
         purchased: false,
         upgraded: false,
@@ -29,7 +29,7 @@ let upgradeShop = [
     {
         name: "Jojo",
         cost: 10000,
-        increase: 100,
+        increase: 150,
         type: "auto",
         purchased: false,
         upgraded: false,
@@ -330,10 +330,10 @@ function acquireWholeFlock() {
 
 function upgradeAllFriendsOnce() {
 
-    let upgradedPebbles = upgradeShop.find(upgrade => upgrade.name == "Pebbles" && upgrade.cost == 400)
-    let upgradedBirdie = upgradeShop.find(upgrade => upgrade.name == "Birdie" && upgrade.cost == 4000)
-    let upgradedWinkle = upgradeShop.find(upgrade => upgrade.name == "Winkle" && upgrade.cost == 20000)
-    let upgradedJojo = upgradeShop.find(upgrade => upgrade.name == "Jojo" && upgrade.cost == 40000)
+    let upgradedPebbles = upgradeShop.find(upgrade => upgrade.name == "Pebbles")
+    let upgradedBirdie = upgradeShop.find(upgrade => upgrade.name == "Birdie")
+    let upgradedWinkle = upgradeShop.find(upgrade => upgrade.name == "Winkle")
+    let upgradedJojo = upgradeShop.find(upgrade => upgrade.name == "Jojo")
 
     if (upgradedPebbles && upgradedBirdie && upgradedWinkle && upgradedJojo) {
         let upgradedAllTrophy = availableTrophies.find(trophy => trophy.name == 'Enough to Go Around')
