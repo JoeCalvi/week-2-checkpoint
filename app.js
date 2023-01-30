@@ -84,8 +84,8 @@ let availableTrophies = [
 
 let trophyCase = []
 
-let collectedResource = 99
-let totalCollectedResource = 99
+let collectedResource = 0
+let totalCollectedResource = 0
 let collectionPerClick = 1
 let autoCollection = 0
 
