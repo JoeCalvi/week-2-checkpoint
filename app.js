@@ -20,7 +20,7 @@ let upgradeShop = [
     {
         name: "Winkle",
         cost: 5000,
-        increase: 50,
+        increase: 40,
         type: "auto",
         purchased: false,
         upgraded: false,
@@ -29,7 +29,7 @@ let upgradeShop = [
     {
         name: "Jojo",
         cost: 10000,
-        increase: 150,
+        increase: 160,
         type: "auto",
         purchased: false,
         upgraded: false,
