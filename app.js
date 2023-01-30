@@ -113,7 +113,7 @@ function autoCollectResource() {
 
     drawCollectedResource()
     drawTotalCollectedResource()
-   
+
     let catPersonTrophy = availableTrophies.find(trophy => trophy.name == 'Cat Person')
     if (catPersonTrophy.achieved == false) {
         acquireCatPerson()
@@ -162,35 +162,35 @@ function purchaseUpgrade(name) {
         window.alert("You haven't pet the cat enough :(")
     }
     // SECTION end
-    
+
     // SECTION once upgrades are purchased, pushes respective trophies in trophyCase
-    if (trophy.name == "Pebbles" 
-    && trophy.achieved == false
-    && upgrade.purchased == true) {
+    if (trophy.name == "Pebbles"
+        && trophy.achieved == false
+        && upgrade.purchased == true) {
         trophyCase.push(trophy)
         trophy.achieved = true
         drawTrophyCase()
     }
 
-    if (trophy.name == "Birdie" 
-    && trophy.achieved == false
-    && upgrade.purchased == true) {
+    if (trophy.name == "Birdie"
+        && trophy.achieved == false
+        && upgrade.purchased == true) {
         trophyCase.push(trophy)
         trophy.achieved = true
         drawTrophyCase()
     }
 
-    if (trophy.name == "Winkle" 
-    && trophy.achieved == false
-    && upgrade.purchased == true) {
+    if (trophy.name == "Winkle"
+        && trophy.achieved == false
+        && upgrade.purchased == true) {
         trophyCase.push(trophy)
         trophy.achieved = true
         drawTrophyCase()
     }
 
-    if (trophy.name == "Jojo" 
-    && trophy.achieved == false
-    && upgrade.purchased == true) {
+    if (trophy.name == "Jojo"
+        && trophy.achieved == false
+        && upgrade.purchased == true) {
         trophyCase.push(trophy)
         trophy.achieved = true
         drawTrophyCase()
@@ -317,7 +317,7 @@ function acquireWholeFlock() {
         return upgrade.purchased == true;
     });
 
-    
+
     let wholeFlockTrophy = availableTrophies.find(trophy => trophy.name == 'The Whole Flock')
     if (wholeFlockAchieved && wholeFlockTrophy.achieved == false) {
         trophyCase.push(wholeFlockTrophy)
@@ -330,13 +330,34 @@ function acquireWholeFlock() {
 
 function upgradeAllFriendsOnce() {
 
-    let upgradedPebbles = upgradeShop.find(upgrade => upgrade.name == "Pebbles")
-    let upgradedBirdie = upgradeShop.find(upgrade => upgrade.name == "Birdie")
-    let upgradedWinkle = upgradeShop.find(upgrade => upgrade.name == "Winkle")
-    let upgradedJojo = upgradeShop.find(upgrade => upgrade.name == "Jojo")
+    let pebbles = upgradeShop.find(upgrade => upgrade.name == 'Pebbles')
+    let birdie = upgradeShop.find(upgrade => upgrade.name == 'Birdie')
+    let winkle = upgradeShop.find(upgrade => upgrade.name == 'Winkle')
+    let jojo = upgradeShop.find(upgrade => upgrade.name == 'Jojo')
 
-    if (upgradedPebbles && upgradedBirdie && upgradedWinkle && upgradedJojo) {
-        let upgradedAllTrophy = availableTrophies.find(trophy => trophy.name == 'Enough to Go Around')
+    if (pebbles.cost == 400) {
+        pebbles.upgraded = true
+    }
+
+    if (birdie.cost == 4000) {
+        birdie.upgraded = true
+    }
+
+    if (winkle.cost == 20000) {
+        winkle.upgraded = true
+    }
+
+    if (jojo.cost == 40000) {
+        jojo.upgraded = true
+    }
+
+    let upgradedAllTrophy = availableTrophies.find(trophy => trophy.name == 'Enough to Go Around')
+
+    if (pebbles.upgraded == true
+        && birdie.upgraded == true
+        && winkle.upgraded == true
+        && jojo.upgraded == true
+        && upgradedAllTrophy.achieved == false) {
         trophyCase.push(upgradedAllTrophy)
         drawTrophyCase()
         upgradedAllTrophy.achieved = true
@@ -344,20 +365,20 @@ function upgradeAllFriendsOnce() {
     }
 }
 
-function acquireCatPerson(){
-    
+function acquireCatPerson() {
+
     if (totalCollectedResource >= 1000000) {
         let catPersonTrophy = availableTrophies.find(trophy => trophy.name == 'Cat Person')
         trophyCase.push(catPersonTrophy)
         if (catPersonTrophy.achieved == false) {
             window.alert("You received 1,000,000 total affection!")
             drawTrophyCase()
-        } 
+        }
         catPersonTrophy.achieved = true
     }
 }
 
-function acquireAllTrophies(){
+function acquireAllTrophies() {
 
     let pebblesTrophy = availableTrophies.find(trophy => trophy.name == 'Pebbles')
     let birdieTrophy = availableTrophies.find(trophy => trophy.name == 'Birdie')
@@ -380,7 +401,7 @@ function acquireAllTrophies(){
         drawTrophyCase()
         timeWasterTrophy.achieved = true
         window.alert("You've earned all the trophies! Don't you have somewhere to be?")
-    } 
+    }
 }
 
 drawUpgradeShop()
