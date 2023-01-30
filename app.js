@@ -122,13 +122,13 @@ function purchaseUpgrade(name) {
     let upgrade = upgradeShop.find(upgrade => upgrade.name == name)
     if (upgrade.purchased == false) {
         purchasedUpgrades.push(upgrade)
-        if (upgrade.name == "Pebbles") {
+        if (upgrade.name == "Pebbles" && collectedResource >= upgrade.cost) {
             window.alert('You gained Pebbles as a friend!')
-        } else if (upgrade.name == "Birdie") {
+        } else if (upgrade.name == "Birdie" && collectedResource >= upgrade.cost) {
             window.alert('You gained Birdie as a friend!')
-        } else if (upgrade.name == "Winkle") {
+        } else if (upgrade.name == "Winkle" && collectedResource >= upgrade.cost) {
             window.alert('You gained Winkle as a friend!')
-        } else if (upgrade.name == "Jojo") {
+        } else if (upgrade.name == "Jojo" && collectedResource >= upgrade.cost) {
             window.alert('You gained Jojo as a friend!')
         }
     }
@@ -153,22 +153,30 @@ function purchaseUpgrade(name) {
 
     let trophy = availableTrophies.find(trophy => trophy.name == name)
 
-    if (trophy.name == "Pebbles" && trophy.achieved == false) {
+    if (trophy.name == "Pebbles" 
+    && trophy.achieved == false
+    && collectedResource >= upgrade.cost) {
         trophyCase.push(trophy)
         trophy.achieved = true
     }
 
-    if (trophy.name == "Birdie" && trophy.achieved == false) {
+    if (trophy.name == "Birdie" 
+    && trophy.achieved == false
+    && collectedResource >= upgrade.cost) {
         trophyCase.push(trophy)
         trophy.achieved = true
     }
 
-    if (trophy.name == "Winkle" && trophy.achieved == false) {
+    if (trophy.name == "Winkle" 
+    && trophy.achieved == false
+    && collectedResource >= upgrade.cost) {
         trophyCase.push(trophy)
         trophy.achieved = true
     }
 
-    if (trophy.name == "Jojo" && trophy.achieved == false) {
+    if (trophy.name == "Jojo" 
+    && trophy.achieved == false
+    && collectedResource >= upgrade.cost) {
         trophyCase.push(trophy)
         trophy.achieved = true
     }
