@@ -80,8 +80,8 @@ let availableTrophies = [
 
 let trophyCase = []
 
-let collectedResource = 0
-let totalCollectedResource = 0
+let collectedResource = 99
+let totalCollectedResource = 99
 let collectionPerClick = 1
 let autoCollection = 0
 
@@ -120,7 +120,12 @@ function autoCollectResource() {
 function purchaseUpgrade(name) {
 
     let upgrade = upgradeShop.find(upgrade => upgrade.name == name)
-    if (upgrade.purchased == false) {
+    let trophy = availableTrophies.find(trophy => trophy.name == name)
+
+    // SECTION pushes upgrades from store to purchased upgrades
+    // also notifies user that they've acquired that upgrade
+    if (upgrade.purchased == false
+        && collectedResource >= upgrade.cost) {
         purchasedUpgrades.push(upgrade)
         if (upgrade.name == "Pebbles" && collectedResource >= upgrade.cost) {
             window.alert('You gained Pebbles as a friend!')
@@ -132,15 +137,17 @@ function purchaseUpgrade(name) {
             window.alert('You gained Jojo as a friend!')
         }
     }
+    // SECTION end
 
-    if (upgrade.cost <= collectedResource
+    // SECTION determines whether an upgrade is "click" or "auto" buff
+    if (collectedResource >= upgrade.cost
         && upgrade.type == "click") {
         drawPurchasedUpgrades()
         collectedResource -= upgrade.cost
         collectionPerClick += upgrade.increase
         upgrade.purchased = true
         upgrade.cost = upgrade.cost * 2
-    } else if (upgrade.cost <= collectedResource
+    } else if (collectedResource >= upgrade.cost
         && upgrade.type == "auto") {
         drawPurchasedUpgrades()
         collectedResource -= upgrade.cost
@@ -150,45 +157,46 @@ function purchaseUpgrade(name) {
     } else if (upgrade.cost > collectedResource) {
         window.alert("You haven't pet the cat enough :(")
     }
-
-    let trophy = availableTrophies.find(trophy => trophy.name == name)
-
+    // SECTION end
+    
+    // SECTION once upgrades are purchased, pushes respective trophies in trophyCase
     if (trophy.name == "Pebbles" 
     && trophy.achieved == false
-    && collectedResource >= upgrade.cost) {
+    && upgrade.purchased == true) {
         trophyCase.push(trophy)
         trophy.achieved = true
+        drawTrophyCase()
     }
 
     if (trophy.name == "Birdie" 
     && trophy.achieved == false
-    && collectedResource >= upgrade.cost) {
+    && upgrade.purchased == true) {
         trophyCase.push(trophy)
         trophy.achieved = true
+        drawTrophyCase()
     }
 
     if (trophy.name == "Winkle" 
     && trophy.achieved == false
-    && collectedResource >= upgrade.cost) {
+    && upgrade.purchased == true) {
         trophyCase.push(trophy)
         trophy.achieved = true
+        drawTrophyCase()
     }
 
     if (trophy.name == "Jojo" 
     && trophy.achieved == false
-    && collectedResource >= upgrade.cost) {
+    && upgrade.purchased == true) {
         trophyCase.push(trophy)
         trophy.achieved = true
+        drawTrophyCase()
     }
-
 
     drawCollectionPerClick()
     drawAutoCollectionRate()
     drawCollectedResource()
     drawUpgradeShop()
-    drawTrophyCase()
     acquireAllTrophies()
-    // console.log(purchasedUpgrades)
 }
 
 function drawCollectedResource() {
